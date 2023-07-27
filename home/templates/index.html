@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="../../static/css/bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+    <!-- 导航栏 -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="bs-example">
+                    <ul class="nav navbar-nav" style="width:100%;">
+                        <li class="active nav-top">
+                            <a href="{% url 'home' %}">首页</a>
+                        </li>
+
+                        <li class="dropdown nav-top">
+                            <a href="#" class="dropdown-toggle on" data-toggle="dropdown">
+                                公司简介</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'path()方法内的name变量内容' %}">企业概况</a></li>
+                                <li><a href="{% url 'honor' %}">荣誉资质</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

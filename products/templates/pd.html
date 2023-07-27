@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{product.title}}详情
+{% endblock %}
+
+{% block content %}
+<!-- 主体内容 -->
+<div class="container">
+    <div class="model-details-product-title" style="text-align: center;">
+        {{product.title}}
+    </div>
+    <div class="model-details">
+        {% for img in product.productImgs.all %}
+        <div class="row-4">
+            <img class="img-responsive" src="{{img.photo.url}}">
+        </div>
+        {% endfor %}
+        <h3>产品介绍</h3>
+        <p>
+            {{product.description|linebreaks}}
+        </p>
+        <h3>参考价格</h3>
+        <p>
+            {{product.price}}元
+        </p>
+    </div>
+</div>
+{% endblock %}

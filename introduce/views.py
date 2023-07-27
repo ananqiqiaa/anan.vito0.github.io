@@ -1,0 +1,10 @@
+from django.shortcuts import render
+from .models import Award
+# Create your views here.
+
+def survey(request):
+    return render(request,'intro.html',{'active_menu':'introduce','sub_menu':'survey'})
+
+def honor(request):
+    awards = Award.objects.all()
+    return render(request,'honor.html',{'active_menu':'introduce','sub_menu':'honor','awards':awards,})

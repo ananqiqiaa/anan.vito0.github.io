@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Django介绍{% endblock %}
+{% block content %}
+        <!-- 横幅 -->
+        <div class="container-fluid">
+            <div class="row">
+                <img class="img-responsive model-img" src="{% static 'img/jieshao.jpg' %}" 
+                style="height:200px ; width:100%;">
+            </div>
+        </div>
+        <!-- 主体内容 -->
+        <div class="container" id="nr" style="width: 100%;">
+            <div class="model-details-title">
+                <h1>Django介绍</h1>
+            </div>
+            <div class="model-details">
+                <h2>1. 什么是Django</h2>
+                <span>Django 是一个高级的 Python 网络框架，可以快速开发安全和可维护的网站。由经验丰富的开发者构建，Django负责处理网站开发中麻烦的部分，因此你可以专注于编写应用程序，而无需重新开发。<br/>
+                    它是免费和开源的，有活跃繁荣的社区，丰富的文档，以及很多免费和付费的解决方案。</span>
+                <h2>2. Django的诞生</h2>
+                <p>Django最初是由一个负责创建和维护报纸网站的网络团队在2003年至2005年间开发的。在创建了大量站点之后，团队开始考虑并重用大量通用代码和设计模式。这个通用代码演变成了一个通用的web开发框架，在2005年7月被开源为“Django”项目。
+
+                    Django从2008年9月发布的第一个里程碑版本（1.0）到最近发布的版本3.1（2020），一直在不断增长和改进。每个版本都添加了新的功能和错误修复，从支持新类型的数据库、模板引擎和缓存，到添加“通用”视图函数和类（这减少了开发人员为许多编程任务编写的代码量）。
+                </p>
+                <h2>3. Django代码样式</h2>
+                <p>在传统的数据驱动网站中，Web应用程序会等待来自Web浏览器（或其他客户端）的 HTTP 请求。当接收到请求时，应用程序根据 URL 和可能的 POST 数据或 GET 数据中的信息确定需要的内容。根据需要，可以从数据库读取或写入信息，或执行满足请求所需的其他任务。然后，该应用程序将返回对Web浏览器的响应，通常通过将检索到的数据插入 HTML模板中的占位符来动态创建用于浏览器显示的 HTML 页面。
+
+                    Django 网络应用程序，通常将处理每个步骤的代码分组到单独的文件中：
+                </p>
+                <div style="text-align: center;"><img src="{% static 'img/django.jpg' %}"></div>
+                </div>
+        </div>
+        <div class="line"></div>
+{% endblock %}
