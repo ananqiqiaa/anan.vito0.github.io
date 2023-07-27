@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width:device-width,initial-scale=1">
+        <title>我的公司|{% block title %}{% endblock %}</title>
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </head>
+    <body>
+        <!-- 头部内容 -->
+        <div class="container top">
+            <div class="row">
+                <div class="col-md-6">
+                    <a>
+                        <img class="img-responsive" src="{% static 'img/test.jpg' %}" 
+                        style="height: 60px;width:160px ;">
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs">
+                    <a class="phone ant">
+                        <span class="glyphicon glyphicon-phone">电话：13426004223</span>
+                    </a>
+                </div>
+                <div class="col-md-3 hidden-xs">
+                    <a class="mail ant" href="https://mail.qq.com/">
+                        <span class="glyphicon glyphicon-envelope">邮箱：651220506@qq.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- <div> -->
+            <div class="container">
+                <!-- <div> -->
+                <div class="collapse navbar-collapse" id="bs-example">
+                    <ul class="nav navbar-nav" style="width:100%;">
+                        <li class="nav-top" id="home">
+                            <a href="{% url 'home' %}">首页</a>
+                        </li>
+                        <li class="dropdown nav-top" id="introduce">
+                            <a href="#" class="dropdown-toggle on" data-toggle="dropdown">
+                                公司简介</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'introduce:survey' %}">企业概况</a></li>
+                                <li><a href="{% url 'introduce:honor' %}">荣誉资质</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown nav-top">
+                            <a href="#" class="dropdown-toggle on" data-toggle="dropdown">
+                                人才招聘</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'contact:contact' %}">欢迎咨询</a></li>
+                                <li><a href="{% url 'contact:recruit' %}">加入我司</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown nav-top" id="products">
+                            <a href="#" class="dropdown-toggle on" data-toggle="dropdown">
+                                产品中心</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'products' 'cp1' %}">产品1</a></li>
+                                <li><a href="{% url 'products' 'cp2' %}">产品2</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown nav-top">
+                            <a href="#" class="dropdown-toggle on" data-toggle="dropdown">
+                                新闻公告
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'news:company'%}">公司要闻</a></li>
+                                <li><a href="{% url 'news:industry'%}">行业新闻</a></li>
+                                <li><a href="{% url 'news:notice'%}">公告通知</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-top" id="science">
+                            <a href="{% url 'science' %}">
+                                Django介绍
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="line"></div>
+        </nav>
+        <!-- 各页面不同的内容 -->
+        {% block content %}{% endblock %}
+        <!-- 页脚 -->
+        <div class="container web-footer">
+            <!-- 站点导航 -->
+            <div class="row" id="map-footer">
+                <div class="col-md-3">
+                    <dl>
+                        <dt>其他院校</dt>
+                        <dd><a href="https://www.gzu.edu.cn/">贵州大学</a></dd>
+                        <dd><a href="https://www.gufe.edu.cn/">贵州财经大学</a></dd>
+                        <dd><a href="https://www.gznu.edu.cn/">贵州师范大学</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-3">
+                    <dl>
+                        <dt>快速访问</dt>
+                        <dd><a href="https://www.baidu.com/">百度知道</a></dd>
+                        <dd><a href="https://www.bilibili.com/">哔哩哔哩</a></dd>
+                        <dd><a href="https://www.csdn.net/">CSDN</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-3">
+                    <dl>
+                        <dt>本校链接</dt>
+                        <dd><a href="http://www.gzcc.edu.cn/">本校官网</a></dd>
+                        <dd><a href="http://ehall.gzcc.edu.cn/ywtb-portal/official/index.html#/hall">办事大厅</a></dd>
+                        <dd><a href="http://qzjwgl.gzcc.edu.cn/jsxsd/">教务系统</a></dd>
+                    </dl>
+                </div>
+                <div class="col-md-3" id="wx">
+                    <p>扫码加我</p>
+                    <img class="qrimg" src="{% static 'img/lyq.jpg' %}">
+                    <p>客服电话:<b style="font-size: 20px;">400 100 400</b></p>
+                </div>
+            </div>
+            <!-- 版权信息 -->
+            <div class="row" id="patent-footer">
+                <p>© 2023 python web云端开发（贵州商学院计算机与信息工程学院）版权所有 | 贵 ICP 备 100100100</p>
+            </div>
+        </div>
+
+
+        <script>
+            $(function () {
+                $(".dropdown").mouseover(function () {
+                    $(this).addClass("open");
+                });
+                $(".dropdown").mouseleave(function () {
+                    $(this).removeClass("open");
+                });
+            });
+        </script>
+        <script type="text/JavaScript">
+            $('#{{active_menu}}').addClass("active");
+        </script>
+        <script type="text/JavaScript">
+            $('#{{sub_menu}}').addClass("active");
+        </script>
+    </body>
+</html>
